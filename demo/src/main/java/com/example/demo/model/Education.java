@@ -17,10 +17,10 @@ public class Education {
     private long year;
 
     @NotBlank(message = "title can not be blank")
-    @Size(min = 1, max = 256, message = "length of title should between 1 to 128 characters")
+    @ByteSize(min = 1, max = 256, message = "length of title should between 1 to 256 bytes")
     private String title;
 
     @NotBlank(message = "description can not be blank")
-    @Size(min = 1, max = 4096, message = "length of description should between 1 to 128 characters")
+    @ByteSize(min = 1, max = 4096, message = "length of description should between 1 to 4096 bytes")
     private String description;
 }

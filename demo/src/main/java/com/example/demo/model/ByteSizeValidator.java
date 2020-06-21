@@ -16,11 +16,11 @@ public class ByteSizeValidator implements ConstraintValidator<ByteSize, String> 
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if( value.getBytes().length > min && value.getBytes().length < max ) {
-            System.out.println(min + " " + max + " " + value.getBytes().length);
+        if( value.getBytes().length >= min && value.getBytes().length <= max ) {
+            //System.out.println(min + " " + max + " " + value.getBytes().length);
             return true;
         } else
-            System.out.println(min + " " + max + " " + value.getBytes().length);
+            //System.out.println(min + " " + max + " " + value.getBytes().length);
             return false;
     }
 }
