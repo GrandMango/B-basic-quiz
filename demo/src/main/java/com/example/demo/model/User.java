@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class User {
     private long userId;
     @NotBlank(message = "name can not be blank")
-    @Size(min = 1, max = 128, message = "length of name should between 1 to 128 characters")
+    @ByteSize(min = 1, max = 128, message = "length of name should between 1 to 128 characters")
     private String name;
 
     @NotNull(message = "age can not be blank")
