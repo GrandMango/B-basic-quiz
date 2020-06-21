@@ -37,4 +37,15 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);
     }
+
+    @ExceptionHandler( ResourceNotFoundException.class )
+    public ResponseEntity<ErrorResult> handle( ResourceNotFoundException ex) {
+        String message = ex.getMessage();
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hh:mm:ss:SSSZ");
+
+        ErrorResult errorResult = new ErrorResult(HttpStatus.NOT_FOUND.value(), message,
+                "Bad Request", ZonedDateTime.now().format(pattern));
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResult);
+    }
 }

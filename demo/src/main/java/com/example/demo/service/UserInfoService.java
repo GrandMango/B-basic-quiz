@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.db.EducationBackgroudDB;
 import com.example.demo.db.PersonalInfoDB;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Education;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class UserInfoService {
         if( personalInfoDB.getMap().containsKey(id) == true ) {
             return personalInfoDB.getMap().get(id);
         } else {
-            throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "User Not Found");
+            throw new ResourceNotFoundException("User Not Found");
+            //throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "User Not Found");
         }
     }
 
